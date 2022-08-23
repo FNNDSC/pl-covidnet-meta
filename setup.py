@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='covidnet-meta',
-    version='1.0.8',
+    version='1.0.10',
     description='A ChRIS plugin that analyzes an upstream COVID prediction.json file and, if COVID infection inferred, will exit with an exception. This has the effect of coloring the node red in the DAG representation.',
     author='FNNDSC',
     author_email='dev@babyMRI.org',

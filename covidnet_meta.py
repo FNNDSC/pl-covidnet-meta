@@ -81,9 +81,5 @@ def main(options: Namespace, inputdir: Path, outputdir: Path):
             sub_options.outputdir = str(sub_output.parent)
             run_one(sub_options)
 
-    output_file = outputdir / f'{__pkg}.txt'
-    output_file.write_text('did nothing successfully!')
-
-
 if __name__ == '__main__':
     main()
