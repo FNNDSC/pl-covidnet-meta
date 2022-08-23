@@ -5,12 +5,12 @@
 [![ci](https://github.com/FNNDSC/pl-covidnet-meta/actions/workflows/ci.yml/badge.svg)](https://github.com/FNNDSC/pl-covidnet-meta/actions/workflows/ci.yml)
 
 `pl-covidnet-meta` is a [_ChRIS_](https://chrisproject.org/)
-_ds_ plugin which takes in ...  as input files and
-creates ... as output files.
+_ds_ plugin which consumes a `prediction.json` from an upstream COVIDnet prediction file and depending on content, might throw an execption.
+
 
 ## Abstract
 
-...
+This _meta_ plugin is part of a COVIDnet analysis compute graph. It is meant to show a simple visual proof of concept -- if this compute graph has inferred COVID infection, then this plugin will throw an exception and "die". Within the context of the ChRIS UI, this has the effect of coloring the Feed Graph red in the visual representation -- in effect providing a simple visual tag on the final result of the compute graph.
 
 ## Installation
 

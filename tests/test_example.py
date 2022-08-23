@@ -1,7 +1,8 @@
 from pathlib import Path
+from argparse import ArgumentParser, Namespace, ArgumentDefaultsHelpFormatter
 
 from covidnet_meta import parser, main, DISPLAY_TITLE
-
+import json
 
 def test_main(mocker, tmp_path: Path):
     """
@@ -12,12 +13,23 @@ def test_main(mocker, tmp_path: Path):
     inputdir.mkdir()
     outputdir.mkdir()
 
-    options = parser.parse_args(['--name', 'bar'])
+    d_dummyPrediction = {
+        "**DISCLAIMER**": "Do not use this prediction for self-diagnosis. You should check with your local authorities for the latest advice on seeking medical assistance.",
+        "prediction": "Normal",
+        "COVID-19": "1.3288779e-06",
+        "Pneumonia": "9.121393e-06",
+        "Normal": "0.9999895"
+    }
+    json_obj = json.dumps(d_dummyPrediction, indent = 4)
+    with open("%s/prediction-default.json" % inputdir, "w") as outfile:
+        outfile.write(json_obj)
+
+    options = parser.parse_args(['--prediction', 'prediction-default.json'])
+    options.inputdir = inputdir
+    options.outputdir = outputdir
 
     mock_print = mocker.patch('builtins.print')
     main(options, inputdir, outputdir)
-    mock_print.assert_called_once_with(DISPLAY_TITLE)
 
-    expected_output_file = outputdir / 'bar.txt'
+    expected_output_file = outputdir / 'prediction-default.json'
     assert expected_output_file.exists()
-    assert expected_output_file.read_text() == 'did nothing successfully!'
