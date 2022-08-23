@@ -8,9 +8,9 @@
 # STEP 1. Change these values to your liking.
 
 PLUGIN_NAME="$(basename $(dirname $(realpath $0)))"  # name of current directory
-PLUGIN_TITLE='My ChRIS Plugin'
-SCRIPT_NAME='commandname'
-DESCRIPTION='A ChRIS plugin to do something awesome'
+PLUGIN_TITLE='COVIDnet-meta'
+SCRIPT_NAME='covidnet_meta'
+DESCRIPTION='A ChRIS plugin that analyzes an upstream COVID prediction.json file and, if COVID infection inferred, will exit with an exception. This has the effect of coloring the node red in the DAG representation.'
 ORGANIZATION='FNNDSC'
 EMAIL='dev@babyMRI.org'
 
@@ -21,7 +21,7 @@ ENABLE_CI=yes
 
 # STEP 2. Uncomment the line below.
 
-#READY=yes
+READY=yes
 
 # STEP 3. Run: ./bootstrap.sh
 
