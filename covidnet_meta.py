@@ -11,11 +11,18 @@ __version__ = __pkg.version
 
 
 DISPLAY_TITLE = r"""
-ChRIS Plugin Template Title
+       _                      _     _            _                         _        
+      | |                    (_)   | |          | |                       | |       
+ _ __ | |______ ___ _____   ___  __| |_ __   ___| |_ ______ _ __ ___   ___| |_ __ _ 
+| '_ \| |______/ __/ _ \ \ / / |/ _` | '_ \ / _ \ __|______| '_ ` _ \ / _ \ __/ _` |
+| |_) | |     | (_| (_) \ V /| | (_| | | | |  __/ |_       | | | | | |  __/ || (_| |
+| .__/|_|      \___\___/ \_/ |_|\__,_|_| |_|\___|\__|      |_| |_| |_|\___|\__\__,_|
+| |                                                                                 
+|_|                                                                                 
 """
 
 
-parser = ArgumentParser(description='cli description',
+parser = ArgumentParser(description='A ChRIS plugin that analyzes an upstream COVID prediction.json file and, if COVID infection inferred, will exit with an exception. This has the effect of coloring the node red in the DAG representation.',
                         formatter_class=ArgumentDefaultsHelpFormatter)
 parser.add_argument('-n', '--name', default='foo',
                     help='argument which sets example output file name')
@@ -26,7 +33,7 @@ parser.add_argument('-V', '--version', action='version',
 # documentation: https://fnndsc.github.io/chris_plugin/chris_plugin.html#chris_plugin
 @chris_plugin(
     parser=parser,
-    title='My ChRIS plugin',
+    title='COVIDnet-meta',
     category='',                 # ref. https://chrisstore.co/plugins
     min_memory_limit='100Mi',    # supported units: Mi, Gi
     min_cpu_limit='1000m',       # millicores, e.g. "1000m" = 1 CPU core
